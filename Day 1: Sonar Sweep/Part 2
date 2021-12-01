@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Day1P2 {
+    public static void main(String[] args) throws FileNotFoundException {
+        File lst = new File("C:\\Users\\12268\\Desktop\\AdventOfCode\\AdventOfCode\\src\\input.txt");
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        Scanner read = new Scanner(lst);
+
+        int count = 0;
+
+        while (read.hasNextInt()) {
+            list.add(read.nextInt());
+            count = count + 1;
+        }
+
+        int numberOfIncreases = 0;
+        for (int i = 3; i < list.size(); i++) {
+            numberOfIncreases += list.get(i) > list.get(i - 3) ? 1 : 0;
+        }
+
+        System.out.println(numberOfIncreases);
+    }
+}
